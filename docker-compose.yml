@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  api-php:
+    build: .  # Caminho para o diretório onde está o Dockerfile do PHP/Symfony
+    volumes:
+      - .:/var/www/html  # Certifique-se de que o diretório './php' é o local correto do seu código Symfony
+    ports:
+      - "8000:8000"  # Mapeamento da porta 8000 do container para a porta 8000 do host
+    networks:
+      - app-network
+    environment:
+      - APP_ENV=prod  # Define o ambiente da aplicação Symfony
+      - DATABASE_URL=mysql://user:password@db:3306/user_project_management  # URL de conexão com o banco de dados MySQL
+
+  api-node:
+    build: ../Trackwise-node  # Caminho para o diretório do Dockerfile do Node.js
+    ports:
+      - "3000:3000"  # Mapeamento de porta corretamente configurado
+    volumes:
+      - ../Trackwise-node:/usr/src/app  # Caminho para o diretório do código Node.js
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0  # Especifica a versão do MySQL
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_project_management
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"  # Mapeamento de porta para acesso ao MySQL
+    volumes:
+      - dbdata:/var/lib/mysql  # Volume nomeado para persistência dos dados do MySQL
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

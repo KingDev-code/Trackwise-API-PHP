@@ -26,10 +26,10 @@ nelmio_api_doc:
             description: 'Find more information about our API in the GitHub repository.'
             url: 'https://github.com/your-username/your-repo'
         servers:
-            - url: 'https://api.example.com'
-              description: 'Production server'
             - url: 'http://127.0.0.1:8000'
               description: 'Staging server'
+            - url: 'https://api.example.com'
+              description: 'Production server(example)'
     areas: # to filter documented areas
         path_patterns:
             - ^/api # Accepts routes under /api except /api/doc

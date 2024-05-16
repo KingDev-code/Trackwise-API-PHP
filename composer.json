@@ -1,4 +1,6 @@
 {
+    "name": "meuprojeto/api-symfony",
+    "description": "API do Symfony para o gerenciamento de projetos",  
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",

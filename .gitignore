@@ -19,3 +19,13 @@ yarn-error.log
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###
+
+/vendor/
+/node_modules/
+/var/
+.env
+.DS_Store
+.idea/
+.vscode/
+.dockerignore
+docker-compose.override.yml
