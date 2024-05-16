@@ -1,0 +1,36 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: 'My Application API'
+            description: 'This API provides access to essential user and session management operations. It allows for user registration, login, profile updates, and more. Developed with a focus on security and ease of use, this documentation aims to provide all necessary information for you to integrate and effectively use our endpoints.'
+            version: '1.0.0'
+            termsOfService: 'http://example.com/terms/'
+            contact:
+                name: 'Developer Support'
+                url: 'http://example.com/support'
+                email: 'davidavirodrigues@gmail.com'
+            license:
+                name: 'MIT'
+                url: 'http://opensource.org/licenses/MIT'
+            x-logo:
+                url: 'http://example.com/logo.png'
+                backgroundColor: '#FFFFFF'
+                altText: 'My Application Logo'
+        securityDefinitions:
+            bearerAuth:
+                type: apiKey
+                description: 'To authenticate requests, you should use the JWT access token obtained after logging in. Enter the token in the authorization field as shown: "Bearer {token}".'
+                name: 'Authorization'
+                in: 'header'
+        externalDocs:
+            description: 'Find more information about our API in the GitHub repository.'
+            url: 'https://github.com/your-username/your-repo'
+        servers:
+            - url: 'https://api.example.com'
+              description: 'Production server'
+            - url: 'http://127.0.0.1:8000'
+              description: 'Staging server'
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api # Accepts routes under /api except /api/doc
+            - ^/register
