@@ -8,6 +8,8 @@ This repository contains the Trackwise API developed in PHP using the Symfony fr
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Composer](https://getcomposer.org/)
+- [Symfony CLI](https://symfony.com/download)
 
 ## Installation and Running Locally
 
@@ -18,37 +20,51 @@ This repository contains the Trackwise API developed in PHP using the Symfony fr
     cd Trackwise-API-PHP
     ```
 
-2. Install the dependencies:
+2. Copy the example environment file and configure the environment variables:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Edit the `.env` file to configure your database connection and other environment variables. For example:
+
+    ```env
+    APP_ENV=dev
+    APP_SECRET=your_secret_key
+    DATABASE_URL=mysql://user:password@127.0.0.1:3306/user_project_management
+    ```
+
+3. Install the dependencies:
 
     ```bash
     composer install
     ```
 
-3. Start the server:
+4. Start the server:
 
     ```bash
     symfony server:start
     ```
 
-4. Access the API at `http://localhost:8000`.
+5. Access the API at `http://localhost:8000`.
 
 ## Running with Docker
 
 1. Clone the repositories:
-   https://github.com/KingDev-code/Trackwise-API-PHP.git
+
     ```bash
     git clone https://github.com/KingDev-code/Trackwise-API.git
     git clone https://github.com/KingDev-code/Trackwise-API-PHP.git
     cd Trackwise-API-PHP
     ```
 
-3. Build and start the containers:
+2. Build and start the containers:
 
     ```bash
     docker-compose up --build
     ```
 
-4. Access the APIs at `http://localhost:3000` for Node.js and `http://localhost:8000` for Symfony. 
+3. Access the APIs at `http://localhost:3000` for Node.js and `http://localhost:8000` for Symfony.
 
     **Note:** Reset the Node.js container before testing.
 
