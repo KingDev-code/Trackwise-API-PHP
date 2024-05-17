@@ -40,13 +40,33 @@ This repository contains the Trackwise API developed in PHP using the Symfony fr
     composer install
     ```
 
-4. Start the server:
+4. Generate the JWT keys:
+
+    Create a directory for the JWT keys:
+
+    ```bash
+    mkdir -p config/jwt
+    ```
+
+    Generate the private key:
+
+    ```bash
+    openssl genpkey -algorithm RSA -out config/jwt/private.pem -aes256
+    ```
+
+    Generate the public key:
+
+    ```bash
+    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
+    ```
+
+5. Start the server:
 
     ```bash
     symfony server:start
     ```
 
-5. Access the API at `http://localhost:8000`.
+6. Access the API at `http://localhost:8000`.
 
 ## Running with Docker
 
