@@ -8,3 +8,8 @@ nelmio_api_doc:
   path: /
   methods: GET
   defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+
+security_logout:
+    path: /logout
+    methods: GET
+    defaults: { _controller: 'security.route_loader.logout' }

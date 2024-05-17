@@ -12,25 +12,31 @@ nelmio_api_doc:
             license:
                 name: 'MIT'
                 url: 'http://opensource.org/licenses/MIT'
-            x-logo:
-                url: 'http://example.com/logo.png'
-                backgroundColor: '#FFFFFF'
-                altText: 'My Application Logo'
-        securityDefinitions:
-            bearerAuth:
-                type: apiKey
-                description: 'To authenticate requests, you should use the JWT access token obtained after logging in. Enter the token in the authorization field as shown: "Bearer {token}".'
-                name: 'Authorization'
-                in: 'header'
+            # x-logo:
+            #     url: 'http://example.com/logo.png'
+            #     backgroundColor: '#444444'
+            #     altText: 'My Application Logo'
+        # securityDefinitions:
+        #     bearerAuth:
+        #         type: apiKey
+        #         name: Authorization
+        #         in: header
+        #         description: 'To authenticate requests, you should use the JWT access token obtained after logging in. Enter the token in the authorization field as shown: "Bearer {token}".'
         externalDocs:
             description: 'Find more information about our API in the GitHub repository.'
-            url: 'https://github.com/your-username/your-repo'
+            url: 'https://github.com/KingDev-code/Trackwise-API-PHP.git'
         servers:
             - url: 'http://127.0.0.1:8000'
               description: 'Staging server'
             - url: 'https://api.example.com'
-              description: 'Production server(example)'
-    areas: # to filter documented areas
+              description: 'Production server (example)'
+        components:
+            securitySchemes:
+                bearerAuth:
+                    type: http
+                    scheme: bearer
+    areas:
         path_patterns:
-            - ^/api # Accepts routes under /api except /api/doc
+            - ^/api
             - ^/register
+            - ^/logout
