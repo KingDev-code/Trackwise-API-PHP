@@ -19,8 +19,8 @@ class UserType extends AbstractType
                     'User' => 'ROLE_USER',
                     'Admin' => 'ROLE_ADMIN',
                 ],
-                'expanded' => true, // Use checkbox ou radio buttons
-                'multiple' => true, // Permite múltiplas seleções
+                'expanded' => true, // Use checkbox or radio buttons
+                'multiple' => true, // Allows multiple selections
                 'required' => true,
             ])
             ->add('password')

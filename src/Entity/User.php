@@ -52,9 +52,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->createdAt = new \DateTimeImmutable(); // Definindo a data atual como padrão
-        $this->updatedAt = new \DateTimeImmutable(); // Definindo a data atual como padrão
-        $this->lastLogin = new \DateTime(); // Define para a data e hora atual antes de salvar
+        $this->createdAt = new \DateTimeImmutable(); 
+        $this->updatedAt = new \DateTimeImmutable();
+        $this->lastLogin = new \DateTime();
     }
 
     public function getId(): ?int
