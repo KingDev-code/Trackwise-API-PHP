@@ -48,7 +48,7 @@ class UserController extends AbstractController
     )]
     public function getProfile(): JsonResponse
     {
-        $user = $this->getUser(); // Pega o usuário autenticado
+        $user = $this->getUser();
 
         if (!$user instanceof User) {
             return new JsonResponse(['message' => 'User not found'], Response::HTTP_NOT_FOUND);
@@ -110,9 +110,9 @@ class UserController extends AbstractController
         $user->setEmail($data['email']);
         $user->setPlainPassword($data['password']);
         $user->setRoles(['ROLE_USER']);
-        $user->setActive(true); // Assuma que o usuário é ativado no registro
+        $user->setActive(true);
     
-        if ($data['password']) { // Certifique-se de que uma senha foi fornecida
+        if ($data['password']) {
             $hashedPassword = $passwordHasher->hashPassword($user, $user->getPlainPassword());
             $user->setPassword($hashedPassword);
             $entityManager->persist($user);
