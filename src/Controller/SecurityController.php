@@ -15,6 +15,6 @@ class SecurityController extends AbstractController
     #[Route('/api/login', name: 'app_login', methods: ['POST'])]
     public function login(): JsonResponse
     {
-        throw new \LogicException('O manipulador de autenticação JSON deve lidar com a resposta. Verifique sua configuração de security.yaml.');
+        throw new \LogicException('The JSON authentication handler should handle this response.');
     }
 }
